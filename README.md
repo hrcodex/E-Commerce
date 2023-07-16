@@ -1,9 +1,8 @@
-<p align="center"><a href="https://hrcodex.com" target="_blank"><img src="{{ asset('/) }}copyright/logo.png" width="400" alt="HRCodexs Logo"></a></p>
+<p align="center"><a href="https://hrcodex.com" target="_blank"><img src="public/copyright/logo.png" width="400" alt="HRCodexs Logo"></a></p>
 
 ## Update History
 
 16 Jul 2023 / Update 1.0
-
 
 ## About Project
 
