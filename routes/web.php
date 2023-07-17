@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Mail\HellowMail;
 use Illuminate\Support\Facades\Auth;
@@ -25,9 +26,7 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
-Route::get('/mail', [HomeController::class, 'email'])->name('sentemail');
 
-Route::get('/sent/{email}', [HomeController::class, 'sent'])->name('sent');
 
 
 // Route::get('/mail', function () {

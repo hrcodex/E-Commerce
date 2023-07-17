@@ -8,15 +8,17 @@
       <a href="index3.html" class="nav-link">Home</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="{{ route('logout') }}"
-      onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-       {{ __('Logout') }}
-   </a>
+      {{-- <a href="" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
 
-   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+   <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
        @csrf
-   </form>
+   </form> --}}
+   <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
+    @csrf
+    <button type="submit"  name="btn">Logout</button>
+
+    </form>
+
 
   
     </li>
