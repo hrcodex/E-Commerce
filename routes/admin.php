@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\backend\AdminController;
+use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,4 +33,49 @@ Route::middleware('is_admin')->group(function () {
         //admin Logout
         Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');
     });
+
+    //Category
+    Route::prefix('category')->group(function () {
+        //category Page View
+        Route::get('/index', [CategoryController::class, 'index'])->name('category.index');
+        //store new category
+        Route::post('/store', [CategoryController::class, 'store'])->name('category.store');
+        //dete category
+        Route::get('/delete/{id}', [CategoryController::class, 'destory'])->name('category.destory');
+        //category Edit 
+        Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+        //category Update 
+        Route::post('/update', [CategoryController::class, 'update'])->name('category.update');
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 });
