@@ -18,7 +18,7 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::all();
-        return view('backend.category.index', ['category' => $category]);
+        return view('backend.category.categories.index', ['category' => $category]);
     }
 
     //store new Category

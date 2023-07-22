@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Category</h1>
+            <h1>child Category</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -36,25 +36,28 @@
                   <thead>
                   <tr>
                     <th>SL No</th>
-                    <th>Category name</th>
-                    <th>Category (Slug)</th>
+                    <th>Subcategory name</th>
+                    <th>Subcategory (Slug)</th>
+                    <th>Category Name</th>
                     <th>Action</th>
                   
                   </tr>
                   </thead>
                   <tbody>
-                @foreach ($category as $key=>$data)
+                   
+               
                   <tr>
-                    <td>{{ $key+1 }}</td>
-                    <td>{{ $data->category_name }}</td>
-                    <td>{{ $data->category_slug }}</td>
+                    <td>child</td>
+                    <td>child</td>
+                    <td>child</td>
+                    <td>child</td>
                     <td>
-                    <button type="button" value="{{ $data->id }}" class="btn btn-primary" id="editCategoryBtn" data-toggle="modal" data-target="#categoryModalEdit"><i class="fa fa-edit"></i></button>    
-                    <a href="{{ route('category.destory',$data->id) }}" onclick="confirmation(event)" class="btn btn-danger"><i class="fa fa-trash"></i></a>    
+                    <button type="button" value="child" class="btn btn-primary" id="editSubCategoryBtn" data-toggle="modal" data-target="#subcategoryModalEdit"><i class="fa fa-edit"></i></button>    
+                    <a href="child" onclick="confirmation(event)" class="btn btn-danger"><i class="fa fa-trash"></i></a>    
                     </td>
                    
                   </tr>
-                @endforeach
+               
                   </tbody>
                 </table>
               </div>
@@ -73,61 +76,6 @@
 
   {{-- ----------------Category Model----------------- --}}
 
-  {{-- Add new Category Model --}}
-<div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add New Category</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-       <form action="{{ route('category.store') }}" method="post" >
-        @csrf
-       
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Category</label>
-                  <input type="text" name="category_name" class="form-control" placeholder="category">
-                </div>
-                <div class="card-footer mr-auto">
-                  <button type="submit" name="btn" class="btn btn-primary">Save</button>
-                </div>
-              </form>
-        </div>
-       
-      </div>
-    </div>
-  </div>
-  {{-- Edit Category Model --}}
-<div class="modal fade" id="categoryModalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit Category</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-       <form action="{{ route('category.update') }}" method="post" >
-        @csrf
-       
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Category</label>
-                  <input type="text" id="categoryName" name="category_name" class="form-control">
-                  <input type="hidden" id="categoryId" name="category_id" class="form-control">
-                </div>
-                <div class="card-footer mr-auto">
-                  <button type="submit" name="btn" class="btn btn-primary">Update</button>
-                </div>
-              </form>
-        </div>
-       
-      </div>
-    </div>
-  </div>
 
 
 
@@ -178,7 +126,19 @@
 
   {{-- ajax script --}}
 <script>
-    // __clear input fild data__//
+
+  // $('body').on('click','#editSubCategoryBtn',function(){
+
+  //   let id = $(this).data('id');
+  //   $.get("subcategory/edit/"+id, function(data){
+
+  //     $("moda_body").html(data);
+
+
+  //   });
+
+  // });
+
     function clearData(){
 
       $('#categoryName').val('');
@@ -189,18 +149,19 @@
 
     $(document).ready(function(){
 
-    $(document).on('click', '#editCategoryBtn', function (){
+    $(document).on('click', '#editSubCategoryBtn', function (){
 
-    var id = $(this).val();
+      var id = $(this).val();
     clearData();
     $.ajax({
     type: "GET",
     dataType: "json",
-    url: "/category/edit/"+id,
+    url: "/subcategory/edit/"+id,
     success: function(response){
 
-        $('#categoryName').val(response.category_name);
-        $('#categoryId').val(response.id);
+      $('#subcategory_name').val(response.subcategory_name);
+        $('#category_id').val(response.category_id );
+        $('#subcategory_id').val(response.id );
 
     }
 

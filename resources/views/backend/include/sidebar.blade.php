@@ -55,13 +55,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+                <a href="{{ route('subcategory.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Sub Categories</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
+                <a href="{{ route('childcategory.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Child Categories</p>
                 </a>

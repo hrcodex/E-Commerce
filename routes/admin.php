@@ -3,6 +3,8 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\ChildController;
+use App\Http\Controllers\backend\SubCategoryController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,34 +50,31 @@ Route::middleware('is_admin')->group(function () {
         Route::post('/update', [CategoryController::class, 'update'])->name('category.update');
     });
 
+    //Sub Category
+    Route::prefix('subcategory')->group(function () {
+        //subcategory Page View
+        Route::get('/index', [SubCategoryController::class, 'index'])->name('subcategory.index');
+        //store new Subcategory
+        Route::post('/store', [SubCategoryController::class, 'store'])->name('subcategory.store');
+        //delete Sub category
+        Route::get('/delete/{id}', [SubCategoryController::class, 'destory'])->name('subcategory.destory');
+        //subcategory Edit 
+        Route::get('/edit/{id}', [SubCategoryController::class, 'edit'])->name('subcategory.edit');
+        //subcategory Update 
+        Route::post('/update', [SubCategoryController::class, 'update'])->name('subcategory.update');
+    });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+    //Child Category
+    Route::prefix('childcategory')->group(function () {
+        //subcategory Page View
+        Route::get('/index', [ChildController::class, 'index'])->name('childcategory.index');
+        //store new Subcategory
+        // Route::post('/store', [SubCategoryController::class, 'store'])->name('subcategory.store');
+        // //delete Sub category
+        // Route::get('/delete/{id}', [SubCategoryController::class, 'destory'])->name('subcategory.destory');
+        //  //subcategory Edit 
+        //  Route::get('/edit/{id}', [SubCategoryController::class, 'edit'])->name('subcategory.edit');
+        //  //subcategory Update 
+        //  Route::post('/update', [SubCategoryController::class, 'update'])->name('subcategory.update');
+    });
 });
